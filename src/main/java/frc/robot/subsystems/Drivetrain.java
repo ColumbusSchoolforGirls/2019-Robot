@@ -9,7 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-import frc.robot.commands.Mecanumdrive;
+import frc.robot.commands.MecanumDrive;
 import edu.wpi.first.wpilibj.Spark;
 
 /**
@@ -43,8 +43,12 @@ public class Drivetrain extends Subsystem {
     rightback.set(-strafespeed);
   }
 
+  public void driveCartesian () {
+
+  }
+
   @Override
   public void initDefaultCommand() {
-    setDefaultCommand(new Mecanumdrive());
+    setDefaultCommand(new MecanumDrive());
   }
 }
