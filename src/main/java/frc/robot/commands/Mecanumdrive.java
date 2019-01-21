@@ -7,21 +7,18 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.drive.RobotDriveBase;
 import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder;
 
 public class MecanumDrive extends RobotDriveBase {
-  public MecanumDrive() {
+  public MecanumDrive(Spark leftFront, Spark leftBack, Spark rightFront, Spark rightBack) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
 
   @Override
   public void initSendable(SendableBuilder builder) {
-
-  }
-
-  public void driveCartesian () {
 
   }
 
