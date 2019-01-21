@@ -7,13 +7,13 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.RobotMap;
-import frc.robot.commands.MecanumDrive;
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.drive.MecanumDrive;
+import frc.robot.RobotMap;
 
 /**
- * An example subsystem.  You can replace me with your own Subsystem.
+ * An example subsystem. You can replace me with your own Subsystem.
  */
 public class Drivetrain extends Subsystem {
 public static Spark leftFront = new Spark(RobotMap.LEFT_DRIVE_PORT_FRONT);
@@ -21,12 +21,12 @@ public static Spark leftBack = new Spark(RobotMap.LEFT_DRIVE_PORT_BACK);
 public static Spark rightFront = new Spark(RobotMap.RIGHT_DRIVE_PORT_FRONT);
 public static Spark rigthBack = new Spark(RobotMap.RIGHT_DRIVE_PORT_BACK);
 
+
   public Drivetrain() {
 
   }  
 
   @Override
   public void initDefaultCommand() {
-    setDefaultCommand(new MecanumDrive());
   }
 }
