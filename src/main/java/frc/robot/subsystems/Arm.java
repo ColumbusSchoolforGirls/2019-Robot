@@ -7,11 +7,29 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 
-/**
- * Add your docs here.
- */
-public class Arm extends Subsystem () { public static DoubleSolenoid claw = new DoublSolenoid(RobotMap.CLAW_SOL_A_PORT, RobotMap.CLAW_SOL_B_PORT); 
-    public static Compressor compressor = new Compressor(); 
-    public Arm () {} public static void grab(boolean open) { if () {} }
+
+public class Arm extends Subsystem {
+  public static DoubleSolenoid claw = new DoubleSolenoid(RobotMap.CLAW_SOL_A_PORT, RobotMap.CLAW_SOL_B_PORT);
+  public static Compressor compressor = new Compressor();
+
+  public Arm() {
+
+  }
+
+  public static void grab(boolean open) {
+    if () {
+
+    }
+  }
+
+  @Override
+  public void initDefaultCommand() {
+    // Set the default command for a subsystem here.
+    // setDefaultCommand(new MySpecialCommand());
+  }
+}
