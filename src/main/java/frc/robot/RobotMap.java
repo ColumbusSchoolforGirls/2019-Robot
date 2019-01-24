@@ -23,4 +23,7 @@ public class RobotMap {
   //Solenoid ports
   public static final int CLAW_SOL_A_PORT = 1;
   public static final int CLAW_SOL_B_PORT = 7;
+
+  //Lift port
+  public static final int LIFT_PORT = 5;
 }
