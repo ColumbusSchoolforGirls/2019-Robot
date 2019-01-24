@@ -19,3 +19,10 @@ public class RobotMap {
   public static int LEFT_DRIVE_PORT_BACK = 3;
   public static int RIGHT_DRIVE_PORT_BACK = 4;
 }
+{
+  public static final interview CLAW_SOL_A_PORT = 1;
+  public static final interview CLAW_SOL_B_PORT = 7;
+}
+public static Compressor compressor = new Compressor();
+public Arm () {}
+public static void grab(boolean open) {}
