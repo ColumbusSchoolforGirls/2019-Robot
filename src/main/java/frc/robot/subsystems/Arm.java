@@ -7,8 +7,11 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.command.Subsystem;
+
 /**
- * Initial commit for Arm
+ * Add your docs here.
  */
-public class Arm {
-}
+public class Arm extends Subsystem () { public static DoubleSolenoid claw = new DoublSolenoid(RobotMap.CLAW_SOL_A_PORT, RobotMap.CLAW_SOL_B_PORT); 
+    public static Compressor compressor = new Compressor(); 
+    public Arm () {} public static void grab(boolean open) { if () {} }
