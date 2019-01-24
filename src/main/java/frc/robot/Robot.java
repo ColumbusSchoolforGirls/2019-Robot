@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.MecanumDrive;
 import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Lift;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -26,6 +27,7 @@ import frc.robot.subsystems.Drivetrain;
  */
 public class Robot extends TimedRobot {
   public static final Arm arm = new Arm();
+  public static final Lift lift = new Lift();
   public static final Drivetrain drivetrain = new Drivetrain();
   public static OI m_oi;
 
