@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -19,7 +20,11 @@ public class Lift extends Subsystem {
   public static TalonSRX lift = new TalonSRX(RobotMap.LIFT_PORT);
 
   public Lift () {
-
+    
+  }
+  public static void liftMotor(double speed){
+    lift.set(ControlMode.PercentOutput, speed);
+      
   }
 
 
