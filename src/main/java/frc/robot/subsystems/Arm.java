@@ -9,10 +9,11 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
-
+//this subsystem is for the arm
 public class Arm extends Subsystem {
   public static DoubleSolenoid claw = new DoubleSolenoid(RobotMap.CLAW_SOL_A_PORT, RobotMap.CLAW_SOL_B_PORT);
   public static Compressor compressor = new Compressor();
@@ -21,9 +22,12 @@ public class Arm extends Subsystem {
 
   }
 
+  //This is the method that controls the solenoids to open and close
   public static void grab(boolean open) {
-    if () {
-
+    if (open) {
+      claw.set(Value.kForward);
+    } else {
+      claw.set(Value.kReverse);
     }
   }
 
