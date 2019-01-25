@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.MecanumDrive;
 import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Lift;
 
 /**
@@ -30,6 +31,7 @@ public class Robot extends TimedRobot {
   public static final Lift lift = new Lift();
   public static final DriveTrain drivetrain = new DriveTrain();
   public static OI m_oi;
+  public static final Intake intake = new Intake();
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
