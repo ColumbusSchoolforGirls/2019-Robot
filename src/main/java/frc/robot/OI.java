@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.Grab;
+import frc.robot.commands.IntakeManual;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -46,6 +47,9 @@ public class OI {
   public OI () {
     auxButtonA.whileHeld(new Grab(true, false));
     auxButtonA.whenReleased(new Grab(false, true));
+    auxLeftBumper.whileHeld(new IntakeManual(1));
+    auxRightBumper.whileHeld(new IntakeManual(-1));
+    
     
   }
 }
