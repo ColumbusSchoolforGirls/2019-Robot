@@ -26,4 +26,9 @@ public class RobotMap {
 
   //Lift port
   public static final int LIFT_PORT = 5;
+
+  //Wheel Ports
+  public static final int LEFT_WHEEL = 6;
+  public static final int RIGHT_WHEEL = 7;
+  
 }
