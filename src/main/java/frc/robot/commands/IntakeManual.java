@@ -8,15 +8,16 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
 import frc.robot.subsystems.Intake;
 
 public class IntakeManual extends Command {
   double speed;
-  public IntakeManual(double speed=b) {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    requires(Intake);
-    this.b=speed;
+
+  public IntakeManual(double speed) {
+  
+    requires(Robot.intake);
+    this.speed=speed;
   }
 
   // Called just before this Command runs the first time
@@ -35,7 +36,6 @@ public class IntakeManual extends Command {
   @Override
   protected boolean isFinished() {
     return false;
-    Intake.runIntake(0);
   }
 
   // Called once after isFinished returns true
@@ -49,5 +49,6 @@ public class IntakeManual extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    Intake.runIntake(0);
   }
 }

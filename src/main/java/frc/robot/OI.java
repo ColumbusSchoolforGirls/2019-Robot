@@ -45,8 +45,11 @@ public class OI {
 
 
   public OI () {
+    //uses the aux a button to open and close the arm
     auxButtonA.whileHeld(new Grab(true, false));
     auxButtonA.whenReleased(new Grab(false, true));
+
+    //uses the bumpers to control the intake wheels
     auxLeftBumper.whileHeld(new IntakeManual(1));
     auxRightBumper.whileHeld(new IntakeManual(-1));
     
