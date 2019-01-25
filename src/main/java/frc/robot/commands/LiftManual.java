@@ -29,13 +29,12 @@ public class LiftManual extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (OI.auxCont.getRawAxis(1)<-Global.DEADZONE);{
+    if (OI.auxCont.getRawAxis(1) < -Global.DEADZONE) {
       Lift.liftMotor(.9*OI.auxCont.getRawAxis(1));
-    }
-    else if (OI.auxCont.getRawAxis(1)>Global.DEADZONE);{
+    } else if (OI.auxCont.getRawAxis(1) > Global.DEADZONE) {
       Lift.liftMotor(.4*OI.auxCont.getRawAxis(1));
-    }
-    else (lift.drive(0));{
+    } else {
+      Lift.liftMotor(0);
     }
   }
 
