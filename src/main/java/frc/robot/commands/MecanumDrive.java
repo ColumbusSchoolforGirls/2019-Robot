@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Global;
 import frc.robot.OI;
 import frc.robot.Robot;
-import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.Drivetrain;
 
 /*
 Got most of the informtion from: https://github.com/frc3946/MecanumDrivetrain/blob/master/src/edu/wpi/first/wpilibj/templates/commands/MecanumDrive.java
@@ -30,25 +30,13 @@ public class MecanumDrive extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Drivetrain.drive(0, 0, 0);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    X = OI.driveCont.getRawAxis(2);
-    if (Math.abs(X) <= Global.DEADZONE) {
-      X = 0.0;
-    }
-    Y = OI.driveCont.getRawAxis(1);
-    if (Math.abs(Y) <= Global.DEADZONE) {
-      Y = 0.0;
-    }
-    throttle = OI.driveCont.getThrottle();
-    if (Math.abs(throttle) <= Global.DEADZONE) {
-      throttle = 0.0;
-    }
-
-    DriveTrain.mecanumDrive(X, Y, throttle, gyro.getAngle()); //need gyro for it to work
+    if ()
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -60,11 +48,13 @@ public class MecanumDrive extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    Drivetrain.drive(0, 0, 0);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    Drivetrain.drive(0, 0, 0);
   }
 }

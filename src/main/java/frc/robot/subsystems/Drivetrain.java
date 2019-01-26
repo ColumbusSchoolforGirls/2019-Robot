@@ -24,7 +24,7 @@ public class Drivetrain extends Subsystem {
   public static CANSparkMax leftBack = new CANSparkMax(RobotMap.LEFT_DRIVE_PORT_BACK, MotorType.kBrushless);
   public static CANSparkMax rightFront = new CANSparkMax(RobotMap.RIGHT_DRIVE_PORT_FRONT, MotorType.kBrushless);
   public static CANSparkMax rightBack = new CANSparkMax(RobotMap.RIGHT_DRIVE_PORT_BACK, MotorType.kBrushless);
-  public final MecanumDrive drive = new MecanumDrive(leftFront, leftBack, rightFront, rightBack); //Command is deprecated!!!
+  public static MecanumDrive drive = new MecanumDrive(leftFront, leftBack, rightFront, rightBack); //Command is deprecated!!!
   public static boolean polarMode = true; 
 
   public Drivetrain () {
@@ -36,6 +36,10 @@ public class Drivetrain extends Subsystem {
     SmartDashboard.putNumber("Y", y);
     SmartDashboard.putNumber("Rotation", rotation);
     SmartDashboard.putNumber("Gyro", gyro);
+  }
+
+  public static void drive(double yspeed, double xspeed, double rotation) {
+    drive.driveCartesian(yspeed, xspeed, rotation);
   }
 
   public void update () {
