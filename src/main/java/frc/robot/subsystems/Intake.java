@@ -23,7 +23,7 @@ public class Intake extends Subsystem {
   public static TalonSRX leftWheel = new TalonSRX(RobotMap.LEFT_WHEEL);
   public static TalonSRX rightWheel = new TalonSRX(RobotMap.RIGHT_WHEEL);
 
-  public void Intake() {
+  public Intake() {
     
   }
   public static void runIntake(double speed){
