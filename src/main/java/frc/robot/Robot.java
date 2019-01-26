@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.TimedRobot;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -18,6 +19,7 @@ import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Lift;
+import frc.robot.subsystems.WheelieBar;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -27,12 +29,15 @@ import frc.robot.subsystems.Lift;
  * project.
  */
 public class Robot extends TimedRobot {
+  public static final WheelieBar wheeliebar = new WheelieBar();
   public static final Intake intake = new Intake();
   public static final Arm arm = new Arm();
   public static final Lift lift = new Lift();
   public static final DriveTrain drivetrain = new DriveTrain();
+
+  public static Compressor compressor = new Compressor();
+
   public static OI m_oi;
-  public static final Intake intake = new Intake();
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();

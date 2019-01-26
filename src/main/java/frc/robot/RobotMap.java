@@ -31,4 +31,8 @@ public class RobotMap {
   public static final int LEFT_WHEEL = 6;
   public static final int RIGHT_WHEEL = 7;
   
+  //Wheelie Bar
+  public static final int WHEELIE_SOL_A_PORT = 10;
+  public static final int WHEELIE_SOL_B_PORT = 9;
+  
 }
