@@ -27,6 +27,7 @@ import frc.robot.subsystems.Lift;
  * project.
  */
 public class Robot extends TimedRobot {
+  public static final Intake intake = new Intake();
   public static final Arm arm = new Arm();
   public static final Lift lift = new Lift();
   public static final DriveTrain drivetrain = new DriveTrain();
