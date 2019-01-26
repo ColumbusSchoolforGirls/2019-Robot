@@ -12,12 +12,16 @@ import frc.robot.Global;
 import frc.robot.OI;
 import frc.robot.Robot;
 import frc.robot.subsystems.Lift;
+import frc.robot.subsystems.WheelieBar;
 
 public class LiftManual extends Command {
+
+
   public LiftManual() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.lift);
+    requires(Robot.wheeliebar);
   }
 
   // Called just before this Command runs the first time
@@ -35,6 +39,11 @@ public class LiftManual extends Command {
       Lift.liftMotor(.4*OI.auxCont.getRawAxis(1));
     } else {
       Lift.liftMotor(0);
+    }
+    if (Lift.getEncoder() < Global.LIFT_DEADZONE) {
+      WheelieBar.safety(false);
+    } else {
+      WheelieBar.safety(true);
     }
   }
 

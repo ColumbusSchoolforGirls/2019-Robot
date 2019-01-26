@@ -28,4 +28,6 @@ public class Global {
     //Drivetrain
     public static final double DEADZONE = 0.2;
 
+    //Lift safty
+    public static final double LIFT_DEADZONE = 3500.0;
 }
