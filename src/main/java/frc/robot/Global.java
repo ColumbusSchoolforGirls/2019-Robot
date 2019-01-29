@@ -15,7 +15,7 @@ public class Global {
 
     //Controllers
     public static final int JOYSTICK_DRIVE = 0;
-    public static final int JOYSTICK_AUX = 9; //not sure if that is right but going to role with it
+    public static final int JOYSTICK_AUX = 1; //not sure if that is right but going to role with it
     public static final int BUTTON_A = 1;
     public static final int BUTTON_B = 2;
     public static final int BUTTON_X = 3;

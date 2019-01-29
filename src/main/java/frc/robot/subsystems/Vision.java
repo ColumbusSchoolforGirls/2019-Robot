@@ -4,7 +4,7 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
+/*
 package frc.robot.subsystems;
 
 import edu.wpi.first.networktables.NetworkTable;
@@ -12,9 +12,9 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 
-/**
+*
  * Add your docs here.
- */
+ 
 public class Vision extends Subsystem {
   NetworkTable table;
 
@@ -42,3 +42,4 @@ public class Vision extends Subsystem {
     // setDefaultCommand(new MySpecialCommand());
   }
 }
+*/
