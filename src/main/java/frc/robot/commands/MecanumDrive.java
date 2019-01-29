@@ -35,7 +35,7 @@ public class Mecanumdrive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Drivetrain.drive(OI.driveCont.getRawAxis(1), OI.driveCont.getRawAxis(2), OI.driveCont.getRawAxis(4));
+    Drivetrain.drive(OI.driveCont.getRawAxis(1), OI.driveCont.getRawAxis(0), OI.driveCont.getRawAxis(4));
   }
 
   // Make this return true when this Command no longer needs to run execute()
