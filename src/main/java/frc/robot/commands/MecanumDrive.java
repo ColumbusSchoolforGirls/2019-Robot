@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Global;
 import frc.robot.OI;
 import frc.robot.Robot;
 import frc.robot.subsystems.Drivetrain;
@@ -35,7 +36,18 @@ public class Mecanumdrive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Drivetrain.drive(-OI.driveCont.getRawAxis(0), -OI.driveCont.getRawAxis(1), OI.driveCont.getRawAxis(4));
+    if (Math.abs(OI.driveCont.getRawAxis(0)) <= Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(1)) <= Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(4)) <= Global.DEADZONE) {
+      Drivetrain.drive(0, 0, 0);
+    } else if (Math.abs(OI.driveCont.getRawAxis(0)) > Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(1)) <= Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(4)) <= Global.DEADZONE) {
+      Drivetrain.drive(-OI.driveCont.getRawAxis(0), 0, 0);
+    } else if (Math.abs(OI.driveCont.getRawAxis(0)) <= Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(1)) > Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(4)) <= Global.DEADZONE) {
+      Drivetrain.drive(0, -OI.driveCont.getRawAxis(1), 0);
+    } else if (Math.abs(OI.driveCont.getRawAxis(0)) <= Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(1)) <= Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(4)) > Global.DEADZONE) {
+      Drivetrain.drive(0, 0, OI.driveCont.getRawAxis(4));
+    } else {
+      Drivetrain.drive(-OI.driveCont.getRawAxis(0), -OI.driveCont.getRawAxis(1), OI.driveCont.getRawAxis(4));
+    }
+    
   }
 
   // Make this return true when this Command no longer needs to run execute()
