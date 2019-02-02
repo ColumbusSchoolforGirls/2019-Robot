@@ -26,7 +26,7 @@ public class Global {
     public static final int SELECT = 8;
 
     //Drivetrain
-    public static final double DEADZONE = 0.2;
+    public static final double DEADZONE = 0.35;
 
     //Lift safty
     public static final double LIFT_DEADZONE = 3500.0;
