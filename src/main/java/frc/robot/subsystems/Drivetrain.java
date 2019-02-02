@@ -39,7 +39,7 @@ public class Drivetrain extends Subsystem {
   }
 
   public static void drive(double yspeed, double xspeed, double rotation) {
-    drive.driveCartesian(yspeed, xspeed, rotation);
+    drive.driveCartesian(0.5*yspeed, 0.5*xspeed, 0.5*rotation);
   }
 
   public void update () {
