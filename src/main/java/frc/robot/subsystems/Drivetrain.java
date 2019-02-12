@@ -51,5 +51,50 @@ public class Drivetrain extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
      setDefaultCommand(new Mecanumdrive());
+//the PID coding to fix the strafe
+
+     /* protected void execute() {
+    	leftError = setpoint - Drivetrain.getLeftEncoder();
+    	rightError = setpoint - Drivetrain.getRightEncoder();
+    	double angleError = angle - Drivetrain.getFacingAngle();
+
+    	double leftOutput = distPID.getOutput(leftError);
+    	double rightOutput = distPID.getOutput(rightError);
+    	double angleOutput = anglePID.getOutput(angleError);
+
+    	SmartDashboard.putNumber("Left Error", leftError);    	
+    	SmartDashboard.putNumber("Right Error", rightError);
+
+    	if (leftOutput > speedcap) {
+    		leftOutput = speedcap; 
+    	} else if (leftOutput < -speedcap) {
+    		leftOutput = -speedcap;
+    	}
+
+    	if (rightOutput > speedcap) {
+    		rightOutput = speedcap;
+    	} else if (rightOutput < -speedcap) {
+    		rightOutput = -speedcap;
+    	}
+
+    	double leftSpeed = -leftOutput - angleOutput;
+    	double rightSpeed = -rightOutput + angleOutput;
+
+    	Drivetrain.setSpeed(ControlMode.PercentOutput, leftSpeed, rightSpeed);
+    }
+
+    protected boolean isFinished() {
+        return Math.abs(leftError) <= Global.DRIVE_DISTANCE_TOLERANCE;
+    }
+
+    protected void end() {
+    	Drivetrain.setSpeed(ControlMode.PercentOutput, 0, 0);
+//    	Drivetrain.resetEncoders();    	
+    }
+
+    protected void interrupted() {
+    }
+
+} */
   }
 }
