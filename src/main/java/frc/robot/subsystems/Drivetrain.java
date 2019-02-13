@@ -7,6 +7,8 @@
 
 package frc.robot.subsystems;
 
+import com.kauailabs.navx.frc.AHRS;
+import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
@@ -15,6 +17,7 @@ import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 import frc.robot.commands.Mecanumdrive;
+import edu.wpi.first.wpilibj.SPI;
 
 /**
  * Got most of the info for this here: https://github.com/frc3946/MecanumDrivetrain/blob/master/src/edu/wpi/first/wpilibj/templates/subsystems/DriveTrain.java
@@ -24,23 +27,47 @@ public class Drivetrain extends Subsystem {
   public static CANSparkMax leftBack = new CANSparkMax(RobotMap.LEFT_DRIVE_PORT_BACK, MotorType.kBrushless);
   public static CANSparkMax rightFront = new CANSparkMax(RobotMap.RIGHT_DRIVE_PORT_FRONT, MotorType.kBrushless);
   public static CANSparkMax rightBack = new CANSparkMax(RobotMap.RIGHT_DRIVE_PORT_BACK, MotorType.kBrushless);
-  public static MecanumDrive drive = new MecanumDrive(leftFront, leftBack, rightFront, rightBack); //Command is deprecated!!!
+
+  public static CANEncoder rightCanEncoder = new CANEncoder(rightFront);
+  public static CANEncoder leftCanEncoder = new CANEncoder(leftFront);
+
+  public static AHRS gyro = new AHRS(SPI.Port.kMXP);
+
+  public static MecanumDrive drive = new MecanumDrive(leftFront, leftBack, rightFront, rightBack); 
+  
   public static boolean polarMode = true; 
 
   public Drivetrain () {
+    gyro.reset();
     
   }
 
-  public void mecanumDrive(double x, double y, double rotation, double gyro) {
-    SmartDashboard.putNumber("X", x);
-    SmartDashboard.putNumber("Y", y);
-    SmartDashboard.putNumber("Rotation", rotation);
-    SmartDashboard.putNumber("Gyro", gyro);
-  }
+
 
   public static void drive(double yspeed, double xspeed, double rotation) {
     drive.driveCartesian(0.5*yspeed, 0.5*xspeed, 0.5*rotation);
   }
+
+  public static void resetEncoder () {
+    
+  }
+
+  public static double getLeftEncoder () {
+    return leftCanEncoder.getPosition();
+  }
+
+  public static double getRightEncoder () {
+    return rightCanEncoder.getPosition();
+  }
+
+  public static double getFacingAngle () {
+    return gyro.getAngle();
+  }
+
+  public static void resetGyro () {
+    gyro.reset();
+  }
+
 
   public void update () {
     
