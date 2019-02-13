@@ -42,15 +42,18 @@ public class Drivetrain extends Subsystem {
     
   }
 
-
-
   public static void drive(double yspeed, double xspeed, double rotation) {
     drive.driveCartesian(0.5*yspeed, 0.5*xspeed, 0.5*rotation);
   }
 
+  /* figure out how to reset these encoders
+  
   public static void resetEncoder () {
-    
+    leftCanEncoder.
+    rightCanEncoder.reset();
   }
+  
+  */
 
   public static double getLeftEncoder () {
     return leftCanEncoder.getPosition();
@@ -70,7 +73,9 @@ public class Drivetrain extends Subsystem {
 
 
   public void update () {
-    
+    SmartDashboard.putNumber("Left Encoder", getLeftEncoder());
+    SmartDashboard.putNumber("Right Encoder", getRightEncoder());
+    SmartDashboard.putNumber("Angle", getFacingAngle());
   }
 
 
@@ -78,6 +83,15 @@ public class Drivetrain extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
      setDefaultCommand(new Mecanumdrive());
+
+
+
+
+
+
+
+
+
 //the PID coding to fix the strafe
 
      /* protected void execute() {
