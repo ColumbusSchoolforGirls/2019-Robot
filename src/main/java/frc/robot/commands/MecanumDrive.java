@@ -34,18 +34,19 @@ public class Mecanumdrive extends Command {
   }
 
   // Called repeatedly when this Command is scheduled to run
+  //First Drivetrain value is yspeed, then xspeed, then rotation
   @Override
   protected void execute() {
     if (Math.abs(OI.driveCont.getRawAxis(0)) <= Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(1)) <= Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(4)) <= Global.DEADZONE) {
       Drivetrain.drive(0, 0, 0);
     } else if (Math.abs(OI.driveCont.getRawAxis(0)) > Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(1)) <= Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(4)) <= Global.DEADZONE) {
-      Drivetrain.drive(-OI.driveCont.getRawAxis(0), 0, 0);
+      Drivetrain.drive(OI.driveCont.getRawAxis(0), 0, 0);
     } else if (Math.abs(OI.driveCont.getRawAxis(0)) <= Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(1)) > Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(4)) <= Global.DEADZONE) {
-      Drivetrain.drive(0, OI.driveCont.getRawAxis(1), 0);
+      Drivetrain.drive(0, -OI.driveCont.getRawAxis(1), 0);
     } else if (Math.abs(OI.driveCont.getRawAxis(0)) <= Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(1)) <= Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(4)) > Global.DEADZONE) {
       Drivetrain.drive(0, 0, OI.driveCont.getRawAxis(4));
     } else {
-      Drivetrain.drive(-OI.driveCont.getRawAxis(0), OI.driveCont.getRawAxis(1), OI.driveCont.getRawAxis(4));
+      Drivetrain.drive(OI.driveCont.getRawAxis(0), -OI.driveCont.getRawAxis(1), OI.driveCont.getRawAxis(4));
     }
     
   }
