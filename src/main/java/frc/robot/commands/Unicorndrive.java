@@ -17,12 +17,12 @@ import frc.robot.subsystems.Drivetrain;
 Got most of the informtion from: https://github.com/frc3946/MecanumDrivetrain/blob/master/src/edu/wpi/first/wpilibj/templates/commands/MecanumDrive.java
 */
 
-public class Mecanumdrive extends Command {
+public class Unicorndrive extends Command {
   double X;
   double Y;
   double throttle;
 
-  public Mecanumdrive() {
+  public Unicorndrive() {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.drivetrain);
   }

@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.OI;
 import frc.robot.RobotMap;
-import frc.robot.commands.Mecanumdrive;
+import frc.robot.commands.Unicorndrive;
 import edu.wpi.first.wpilibj.SPI;
 
 /**
@@ -88,7 +88,7 @@ public class Drivetrain extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-     setDefaultCommand(new Mecanumdrive());
+     setDefaultCommand(new Unicorndrive());
   }
 }
 
