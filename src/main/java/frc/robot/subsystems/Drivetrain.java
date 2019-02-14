@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
-import frc.robot.commands.Mecanumdrive;
+//import frc.robot.commands.MecanumDrive;
 import edu.wpi.first.wpilibj.SPI;
 
 /**
@@ -80,9 +80,9 @@ public class Drivetrain extends Subsystem {
 
 
   @Override
-  public void initDefaultCommand() {
+ public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-     setDefaultCommand(new Mecanumdrive());
+     //setDefaultCommand(new MecanumDrive(null, null, null, null));
 
 
 
