@@ -15,6 +15,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.OI;
 import frc.robot.RobotMap;
 import frc.robot.commands.Mecanumdrive;
 import edu.wpi.first.wpilibj.SPI;
@@ -71,11 +72,16 @@ public class Drivetrain extends Subsystem {
     gyro.reset();
   }
 
+  public static double getJoystickAngle () {
+    return Math.atan(OI.driveCont.getRawAxis(0)/OI.driveCont.getRawAxis(1));
+  }
+
 
   public void update () {
     SmartDashboard.putNumber("Left Encoder", getLeftEncoder());
     SmartDashboard.putNumber("Right Encoder", getRightEncoder());
     SmartDashboard.putNumber("Angle", getFacingAngle());
+    SmartDashboard.putNumber("Joystick Angle", getJoystickAngle());
   }
 
 
@@ -83,7 +89,7 @@ public class Drivetrain extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
      setDefaultCommand(new Mecanumdrive());
-
+  }
 
 
 
@@ -137,5 +143,5 @@ public class Drivetrain extends Subsystem {
     }
 
 } */
-  }
+
 }
