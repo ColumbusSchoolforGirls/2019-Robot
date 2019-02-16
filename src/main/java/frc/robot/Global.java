@@ -30,4 +30,21 @@ public class Global {
 
     //Lift safty
     public static final double LIFT_DEADZONE = 3500.0;
+
+    //PID control constants (not tuned from last year)
+    public static final double DRIVETRAIN_P = 0.000048; // 0.000048
+	public static final double DRIVETRAIN_I = 0;
+	public static final double DRIVETRAIN_D = 0;
+	public static final double DRIVETRAIN_IZONE = 0;
+	public static final double DRIVESTRAIGHT_ANGLE_P = 0.04; // 0.04
+	public static final double DRIVESTRAIGHT_ANGLE_I = 0;
+	public static final double DRIVESTRAIGHT_ANGLE_D = 0;
+	public static final double TURNANGLE_P = 0.0061;
+	public static final double TURNANGLE_I = 0.001;
+	public static final double TURNANGLE_D = 0;
+	public static final double TURNANGLE_IZONE = 10;
+	public static double ELEVATOR_P = 0;
+	public static double ELEVATOR_I = 0;
+	public static double ELEVATOR_D = 0;
+	public static double ELEVATOR_IZONE = 0;
 }
