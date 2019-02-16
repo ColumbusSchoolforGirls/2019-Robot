@@ -27,7 +27,7 @@ public class Lift extends Subsystem {
     liftEncoder.reset();
   }
   public static void liftMotor(double speed){
-    lift.set(ControlMode.PercentOutput, speed);
+    lift.set(ControlMode.PercentOutput, .7*speed);
       
   }
 

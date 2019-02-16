@@ -27,8 +27,8 @@ public class Intake extends Subsystem {
     
   }
   public static void runIntake(double speed){
-    leftWheel.set(ControlMode.PercentOutput, speed);
-    rightWheel.set(ControlMode.PercentOutput, -speed);
+    leftWheel.set(ControlMode.PercentOutput, .5*speed);
+    rightWheel.set(ControlMode.PercentOutput, .5*speed);
   }
 
   
