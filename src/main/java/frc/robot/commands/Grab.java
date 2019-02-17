@@ -20,8 +20,6 @@ public class Grab extends Command {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.arm);
     open = this.open; //when released (false)
-    close = this.close; //when released(true)
-
   }
 
   // Called just before this Command runs the first time
@@ -39,7 +37,7 @@ public class Grab extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return close;
+    return false;
   }
 
   // Called once after isFinished returns true
