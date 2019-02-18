@@ -14,11 +14,13 @@ import frc.robot.subsystems.Arm;
 //this command allows for the arm to open and close
 public class Grab extends Command {
   boolean open; //when released (false)
+  boolean auto;
   
-  public Grab(boolean open) {
+  public Grab(boolean clawDirection, boolean auto) {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.arm);
-    open = this.open; //when released (false)
+    open = clawDirection; //when released (false)
+    auto = this.auto;
   }
 
   // Called just before this Command runs the first time
@@ -36,7 +38,7 @@ public class Grab extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return auto;
   }
 
   // Called once after isFinished returns true

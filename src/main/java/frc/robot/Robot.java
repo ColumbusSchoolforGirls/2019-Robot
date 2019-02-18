@@ -35,7 +35,6 @@ public class Robot extends TimedRobot {
   public static final Lift lift = new Lift();
   public static final Drivetrain drivetrain = new Drivetrain();
 
-  public static Compressor compressor = new Compressor();
 
   public static OI m_oi;
 
