@@ -10,7 +10,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Global;
 import frc.robot.OI;
-import frc.robot.PIDCalculator;
+//import frc.robot.PIDCalculator;
 import frc.robot.Robot;
 import frc.robot.subsystems.Drivetrain;
 
@@ -19,9 +19,12 @@ Got most of the informtion from: https://github.com/frc3946/MecanumDrivetrain/bl
 */
 
 public class Unicorndrive extends Command {
-  double X;
-  double Y;
-  double throttle;
+  double x;
+  double y;
+  double rotation;  
+  
+  double lastAngle;
+  boolean trackingAngle;
 
   public Unicorndrive() {
     // Use requires() here to declare subsystem dependencies
@@ -32,24 +35,31 @@ public class Unicorndrive extends Command {
   @Override
   protected void initialize() {
     Drivetrain.drive(0, 0, 0);
+    trackingAngle = false;
   }
 
   // Called repeatedly when this Command is scheduled to run
   //First Drivetrain value is yspeed, then xspeed, then rotation
   @Override
   protected void execute() {
-    if (Math.abs(OI.driveCont.getRawAxis(0)) <= Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(1)) <= Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(4)) <= Global.DEADZONE) {
-      Drivetrain.drive(0, 0, 0);
-    } else if (Math.abs(OI.driveCont.getRawAxis(0)) > Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(1)) <= Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(4)) <= Global.DEADZONE) {
-      Drivetrain.drive(OI.driveCont.getRawAxis(0), 0, 0);
-    } else if (Math.abs(OI.driveCont.getRawAxis(0)) <= Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(1)) > Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(4)) <= Global.DEADZONE) {
-      Drivetrain.drive(0, -OI.driveCont.getRawAxis(1), 0);
-    } else if (Math.abs(OI.driveCont.getRawAxis(0)) <= Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(1)) <= Global.DEADZONE && Math.abs(OI.driveCont.getRawAxis(4)) > Global.DEADZONE) {
-      Drivetrain.drive(0, 0, OI.driveCont.getRawAxis(4));
+    x = -OI.driveCont.getRawAxis(1);
+    y = OI.driveCont.getRawAxis(0);
+    rotation = OI.driveCont.getRawAxis(4);
+
+    if (Math.abs(rotation) <= Global.DEADZONE){
+      if (!trackingAngle){
+        trackingAngle = true;
+        lastAngle = Math.abs(Drivetrain.getFacingAngle());
+      }
+
+      double error = lastAngle - Math.abs(Drivetrain.getFacingAngle());
+
+      rotation = Global.DRIVETRAIN_P * error;
     } else {
-      Drivetrain.drive(OI.driveCont.getRawAxis(0), -OI.driveCont.getRawAxis(1), OI.driveCont.getRawAxis(4));
+      trackingAngle = false;
     }
-    
+
+    Drivetrain.drive(y, x, rotation);
   }
 
   // Make this return true when this Command no longer needs to run execute()

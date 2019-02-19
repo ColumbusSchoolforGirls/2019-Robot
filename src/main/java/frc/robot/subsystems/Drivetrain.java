@@ -44,12 +44,13 @@ public class Drivetrain extends Subsystem {
   }
 
   public static void drive(double yspeed, double xspeed, double rotation) {
+    drive.setDeadband(0.2);
     drive.driveCartesian(0.5*yspeed, 0.5*xspeed, 0.5*rotation);
   }
 
   /* figure out how to reset these encoders
   
-  public static void resetEncoder () {
+  public static void resetEncoder () {)
     leftCanEncoder.
     rightCanEncoder.reset();
   }
@@ -82,6 +83,9 @@ public class Drivetrain extends Subsystem {
     SmartDashboard.putNumber("Right Encoder", getRightEncoder());
     SmartDashboard.putNumber("Angle", getFacingAngle());
     SmartDashboard.putNumber("Joystick Angle", getJoystickAngle());
+    SmartDashboard.putNumber("Joystick Y", OI.driveCont.getRawAxis(0));
+    SmartDashboard.putNumber("Joystick X", OI.driveCont.getRawAxis(1));
+    SmartDashboard.putNumber("Joystick Rotation", OI.driveCont.getRawAxis(4));
   }
 
 
