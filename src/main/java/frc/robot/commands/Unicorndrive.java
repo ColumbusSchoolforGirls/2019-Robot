@@ -22,6 +22,7 @@ public class Unicorndrive extends Command {
   double x;
   double y;
   double rotation;  
+  double gyroAngle;
   
   double lastAngle;
   boolean trackingAngle;
@@ -45,11 +46,12 @@ public class Unicorndrive extends Command {
     x = -OI.driveCont.getRawAxis(1);
     y = OI.driveCont.getRawAxis(0);
     rotation = OI.driveCont.getRawAxis(4);
+    gyroAngle = Drivetrain.getFacingAngle();
 
     if (Math.abs(rotation) <= Global.DEADZONE){
       if (!trackingAngle){
         trackingAngle = true;
-        lastAngle = Math.abs(Drivetrain.getFacingAngle());
+        lastAngle = gyroAngle;
       }
 
       double error = lastAngle - Math.abs(Drivetrain.getFacingAngle());
@@ -57,6 +59,7 @@ public class Unicorndrive extends Command {
       rotation = Global.DRIVETRAIN_P * error;
     } else {
       trackingAngle = false;
+      lastAngle = gyroAngle;
     }
 
     Drivetrain.drive(y, x, rotation);
@@ -72,6 +75,7 @@ public class Unicorndrive extends Command {
   @Override
   protected void end() {
     Drivetrain.drive(0, 0, 0);
+    trackingAngle = false;
   }
 
   // Called when another command which requires one or more of the same
@@ -79,5 +83,6 @@ public class Unicorndrive extends Command {
   @Override
   protected void interrupted() {
     Drivetrain.drive(0, 0, 0);
+    trackingAngle = false;
   }
 }
