@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import frc.robot.Global;
 import frc.robot.OI;
 //import frc.robot.PIDCalculator;
@@ -54,9 +55,10 @@ public class Unicorndrive extends Command {
 
       double error = lastAngle - Math.abs(Drivetrain.getFacingAngle());
 
-      rotation = Global.DRIVETRAIN_P * error;
+      rotation = .05 * error;
     } else {
       trackingAngle = false;
+      //rotation = OI.driveCont.getRawAxis(4);
     }
 
     Drivetrain.drive(y, x, rotation);
