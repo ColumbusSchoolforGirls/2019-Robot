@@ -26,7 +26,6 @@ public class Unicorndrive extends Command {
   double gyroAngle;
   
   double lastAngle;
-  boolean trackingAngle;
 
   public Unicorndrive() {
     // Use requires() here to declare subsystem dependencies
@@ -37,7 +36,6 @@ public class Unicorndrive extends Command {
   @Override
   protected void initialize() {
     Drivetrain.drive(0, 0, 0);
-    trackingAngle = false;
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -50,17 +48,17 @@ public class Unicorndrive extends Command {
     gyroAngle = Drivetrain.getFacingAngle();
 
     if (Math.abs(rotation) <= Global.DEADZONE){
-      if (!trackingAngle){
-        trackingAngle = true;
+      
+      if (Math.abs(x) >= Global.DEADZONE) {
+        double error = lastAngle - Math.abs(Drivetrain.getFacingAngle());
+        rotation = .05 * error;
+      } else {
+        rotation = OI.driveCont.getRawAxis(4);
         lastAngle = gyroAngle;
       }
 
-      double error = lastAngle - Math.abs(Drivetrain.getFacingAngle());
-
-      rotation = .05 * error;
     } else {
-      trackingAngle = false;
-      //rotation = OI.driveCont.getRawAxis(4);
+      rotation = OI.driveCont.getRawAxis(4);
     }
 
     Drivetrain.drive(y, x, rotation);
@@ -76,7 +74,6 @@ public class Unicorndrive extends Command {
   @Override
   protected void end() {
     Drivetrain.drive(0, 0, 0);
-    trackingAngle = false;
   }
 
   // Called when another command which requires one or more of the same
@@ -84,6 +81,5 @@ public class Unicorndrive extends Command {
   @Override
   protected void interrupted() {
     Drivetrain.drive(0, 0, 0);
-    trackingAngle = false;
   }
 }
