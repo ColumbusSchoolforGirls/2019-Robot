@@ -60,11 +60,7 @@ public class Unicorndrive extends Command {
       rotation = .05 * error;
     } else {
       trackingAngle = false;
-<<<<<<< HEAD
-      lastAngle = gyroAngle;
-=======
       //rotation = OI.driveCont.getRawAxis(4);
->>>>>>> f245de0945a84d3cf0be982a936c388ef83ae548
     }
 
     Drivetrain.drive(y, x, rotation);
