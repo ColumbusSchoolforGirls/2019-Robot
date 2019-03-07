@@ -32,7 +32,7 @@ public class Global {
     public static final double LIFT_DEADZONE = 3500.0;
 
     //PID control constants (not tuned from last year)
-    public static final double DRIVETRAIN_P = 0.000028; // 0.000048
+    public static final double DRIVETRAIN_P = 0.000006; // 0.000048
 	public static final double DRIVETRAIN_I = 0;
 	public static final double DRIVETRAIN_D = 0;
 	public static final double DRIVETRAIN_IZONE = 0;

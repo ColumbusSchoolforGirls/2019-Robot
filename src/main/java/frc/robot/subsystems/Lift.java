@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.Encoder;
@@ -25,9 +26,10 @@ public class Lift extends Subsystem {
 
   public Lift () {
     liftEncoder.reset();
+    lift.setNeutralMode(NeutralMode.Brake);
   }
   public static void liftMotor(double speed){
-    lift.set(ControlMode.PercentOutput, .7*speed);
+    lift.set(ControlMode.PercentOutput, speed);
       
   }
 

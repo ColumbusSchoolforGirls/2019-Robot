@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
 //import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.TimedRobot;
 
@@ -51,6 +52,9 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", new Unicorndrive());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
+
+    CameraServer.getInstance().addServer("frcvision.local:", 1181);
+    CameraServer.getInstance().startAutomaticCapture();
   }
 
   /**
