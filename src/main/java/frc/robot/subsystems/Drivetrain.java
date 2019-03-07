@@ -43,9 +43,9 @@ public class Drivetrain extends Subsystem {
     
   }
 
-  public static void drive(double yspeed, double xspeed, double rotation) {
-    drive.setDeadband(0.2);
-    drive.driveCartesian(0.5*yspeed, 0.5*xspeed, 0.5*rotation);
+  public static void drive(double xspeed, double yspeed, double rotation) {
+   //5 drive.setDeadband(0.2);
+    drive.driveCartesian(0.5*xspeed, 0.5*yspeed, 0.5*rotation);
   }
 
   /* figure out how to reset these encoders

@@ -42,8 +42,8 @@ public class Unicorndrive extends Command {
   //First Drivetrain value is yspeed, then xspeed, then rotation
   @Override
   protected void execute() {
-    x = -OI.driveCont.getRawAxis(1);
-    y = OI.driveCont.getRawAxis(0);
+    x = OI.driveCont.getRawAxis(0);
+    y = -OI.driveCont.getRawAxis(1);
     rotation = OI.driveCont.getRawAxis(4);
     gyroAngle = Drivetrain.getFacingAngle();
 
@@ -64,9 +64,11 @@ public class Unicorndrive extends Command {
       rotation = OI.driveCont.getRawAxis(4);
     }
 
-    Drivetrain.drive(y, x, rotation);
+    Drivetrain.drive(x, y, rotation);
     }
 
+    //THe x value is first for some reason
+//Drivetrain.drive(x, y, rotation);
     
   }
 
