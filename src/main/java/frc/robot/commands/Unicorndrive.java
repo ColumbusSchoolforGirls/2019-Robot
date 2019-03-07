@@ -47,7 +47,10 @@ public class Unicorndrive extends Command {
     rotation = OI.driveCont.getRawAxis(4);
     gyroAngle = Drivetrain.getFacingAngle();
 
-    if (Math.abs(rotation) <= Global.DEADZONE){
+    if (Math.abs(x) <= Global.DEADZONE && Math.abs(y) <= Global.DEADZONE && Math.abs(rotation) <= Global.DEADZONE) {
+      Drivetrain.drive(0, 0, 0);
+    } else {
+      if (Math.abs(rotation) <= Global.DEADZONE){
       
       if (Math.abs(x) >= Global.DEADZONE) {
         double error = lastAngle - Math.abs(Drivetrain.getFacingAngle());
@@ -62,6 +65,9 @@ public class Unicorndrive extends Command {
     }
 
     Drivetrain.drive(y, x, rotation);
+    }
+
+    
   }
 
   // Make this return true when this Command no longer needs to run execute()
