@@ -54,7 +54,7 @@ public class Unicorndrive extends Command {
       
       if (Math.abs(x) >= Global.DEADZONE) {
         double error = lastAngle - Math.abs(Drivetrain.getFacingAngle());
-        rotation = .05 * error;
+        rotation = .001 * error;
       } else {
         rotation = OI.driveCont.getRawAxis(4);
         lastAngle = gyroAngle;
