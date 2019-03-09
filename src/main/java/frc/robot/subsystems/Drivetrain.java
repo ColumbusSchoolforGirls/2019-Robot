@@ -91,6 +91,8 @@ public class Drivetrain extends Subsystem {
     SmartDashboard.putNumber("Joystick Y", OI.driveCont.getRawAxis(0));
     SmartDashboard.putNumber("Joystick X", OI.driveCont.getRawAxis(1));
     SmartDashboard.putNumber("Joystick Rotation", OI.driveCont.getRawAxis(4));
+
+    SmartDashboard.putString("Left Front Mode", leftFront.getIdleMode().toString());
   }
 
 
