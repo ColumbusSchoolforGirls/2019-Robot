@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.DropWheelieBar;
 import frc.robot.commands.Grab;
 import frc.robot.commands.IntakeManual;
 
@@ -53,6 +54,7 @@ public class OI {
     auxLeftBumper.whileHeld(new IntakeManual(1));
     auxRightBumper.whileHeld(new IntakeManual(-1));
     
-    
+    buttonA.whileHeld(new DropWheelieBar());
+    //buttonA.whenReleased(new DropWheelieBar(0));
   }
 }

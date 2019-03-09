@@ -55,6 +55,7 @@ public class Robot extends TimedRobot {
 
     CameraServer.getInstance().addServer("frcvision.local:", 1181);
     CameraServer.getInstance().startAutomaticCapture();
+  
   }
 
   /**

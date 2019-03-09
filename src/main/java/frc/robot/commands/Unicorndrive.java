@@ -64,8 +64,8 @@ public class Unicorndrive extends Command {
     } else {
       rotation = OI.driveCont.getRawAxis(4);
     }
-
-    Drivetrain.drive(x, y, rotation);
+    //this is where we reduce speed for rotation and not the x and y
+    Drivetrain.drive(0.3*x, 0.5*y, 0.4*rotation);
     }
 
     //THe x value is first for some reason

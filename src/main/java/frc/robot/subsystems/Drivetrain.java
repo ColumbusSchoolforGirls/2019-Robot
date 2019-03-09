@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import com.kauailabs.navx.frc.AHRS;
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -40,12 +41,18 @@ public class Drivetrain extends Subsystem {
 
   public Drivetrain () {
     gyro.reset();
+
+    leftFront.setIdleMode(IdleMode.kBrake);
+    rightFront.setIdleMode(IdleMode.kBrake);
+    leftBack.setIdleMode(IdleMode.kBrake);
+    rightBack.setIdleMode(IdleMode.kBrake);
     
   }
 
   public static void drive(double xspeed, double yspeed, double rotation) {
    //5 drive.setDeadband(0.2);
-    drive.driveCartesian(0.3*xspeed, 0.5*yspeed, 0.3*rotation);
+   //rotation does not have reduced speed here because of DropWheelieBar
+    drive.driveCartesian(xspeed, yspeed, rotation);
   }
 
   /* figure out how to reset these encoders
