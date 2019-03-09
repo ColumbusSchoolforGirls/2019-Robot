@@ -54,6 +54,7 @@ public class OI {
     auxLeftBumper.whileHeld(new IntakeManual(1));
     auxRightBumper.whileHeld(new IntakeManual(-1));
     
+    //Driver holds A to spin in a circle and release the wheeliebar
     buttonA.whileHeld(new DropWheelieBar());
     //buttonA.whenReleased(new DropWheelieBar(0));
   }

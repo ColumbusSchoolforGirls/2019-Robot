@@ -7,17 +7,14 @@
 
 package frc.robot.commands;
 
+
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.drive.MecanumDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Global;
 import frc.robot.OI;
-//import frc.robot.PIDCalculator;
 import frc.robot.Robot;
 import frc.robot.subsystems.Drivetrain;
 
-/*
-Got most of the informtion from: https://github.com/frc3946/MecanumDrivetrain/blob/master/src/edu/wpi/first/wpilibj/templates/commands/MecanumDrive.java
-*/
 
 public class Unicorndrive extends Command {
   double x;
@@ -26,6 +23,7 @@ public class Unicorndrive extends Command {
   double gyroAngle;
   
   double lastAngle;
+  double error;
 
   public Unicorndrive() {
     // Use requires() here to declare subsystem dependencies
@@ -39,7 +37,7 @@ public class Unicorndrive extends Command {
   }
 
   // Called repeatedly when this Command is scheduled to run
-  //First Drivetrain value is yspeed, then xspeed, then rotation
+  //First Drivetrain value is xspeed, then yspeed, then rotation
   @Override
   protected void execute() {
     x = OI.driveCont.getRawAxis(0);
@@ -53,7 +51,7 @@ public class Unicorndrive extends Command {
       if (Math.abs(rotation) <= Global.DEADZONE){
       
       if (x >= Global.DEADZONE) {
-        double error = lastAngle - Math.abs(Drivetrain.getFacingAngle());
+        error = lastAngle - Math.abs(Drivetrain.getFacingAngle());
        //p left .007
         rotation = .007 * error;
       } else {
@@ -66,10 +64,11 @@ public class Unicorndrive extends Command {
     }
     //this is where we reduce speed for rotation and not the x and y
     Drivetrain.drive(0.3*x, 0.5*y, 0.4*rotation);
+
+    SmartDashboard.putNumber("Strafing Error", error);
     }
 
-    //THe x value is first for some reason
-//Drivetrain.drive(x, y, rotation);
+    //The x value is first for some reason
     
   }
 

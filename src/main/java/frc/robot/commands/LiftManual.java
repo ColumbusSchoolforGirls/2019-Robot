@@ -12,16 +12,14 @@ import frc.robot.Global;
 import frc.robot.OI;
 import frc.robot.Robot;
 import frc.robot.subsystems.Lift;
-import frc.robot.subsystems.WheelieBar;
 
 public class LiftManual extends Command {
 
-
+//This command lifts the arm, dependant on the second drivers left joystick
   public LiftManual() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.lift);
-    requires(Robot.wheeliebar);
   }
 
   // Called just before this Command runs the first time
@@ -31,6 +29,7 @@ public class LiftManual extends Command {
   }
 
   // Called repeatedly when this Command is scheduled to run
+  //When the joystick is positive then it runs at .4 speed and when the joystick is negative then .9 speed
   @Override
   protected void execute() {
     if (OI.auxCont.getRawAxis(1) < -Global.DEADZONE) {
@@ -39,11 +38,6 @@ public class LiftManual extends Command {
       Lift.liftMotor(.4*OI.auxCont.getRawAxis(1));
     } else {
       Lift.liftMotor(0);
-    }
-    if (Lift.getEncoder() < Global.LIFT_DEADZONE) {
-      WheelieBar.safety(false);
-    } else {
-      WheelieBar.safety(true);
     }
   }
 

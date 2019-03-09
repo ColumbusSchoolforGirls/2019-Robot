@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.subsystems.Intake;
 
+//This command is for the intake wheels, if we need to change the speed, its in OI
 public class IntakeManual extends Command {
   double speed;
 

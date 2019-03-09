@@ -11,34 +11,23 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 import frc.robot.commands.LiftManual;
 
 /**
- * Add your docs here.
+ * Thi subsystem is for the 4 bar lift
  */
 public class Lift extends Subsystem {
   public static TalonSRX lift = new TalonSRX(RobotMap.LIFT_PORT);
-  public static Encoder liftEncoder = new Encoder(RobotMap.LIFT_ENCODER_A, RobotMap.LIFT_ENCODER_B);
 
   public Lift () {
-    liftEncoder.reset();
     lift.setNeutralMode(NeutralMode.Brake);
   }
+
   public static void liftMotor(double speed){
     lift.set(ControlMode.PercentOutput, speed);
       
-  }
-
-  public static void resetEncoder(){
-    liftEncoder.reset();
-  }
-
-  public static double getEncoder(){
-    return liftEncoder.getDistance();
   }
 
   @Override
@@ -46,7 +35,5 @@ public class Lift extends Subsystem {
     // Set the default command for a subsystem here.
     setDefaultCommand(new LiftManual());
   }
-  public void update(){
-    SmartDashboard.putNumber("Elevator Encoder", getEncoder());
-  }
+
 }

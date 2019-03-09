@@ -20,7 +20,6 @@ import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Lift;
-import frc.robot.subsystems.WheelieBar;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -30,7 +29,6 @@ import frc.robot.subsystems.WheelieBar;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static final WheelieBar wheeliebar = new WheelieBar();
   public static final Intake intake = new Intake();
   public static final Arm arm = new Arm();
   public static final Lift lift = new Lift();

@@ -21,9 +21,6 @@ import frc.robot.RobotMap;
 import frc.robot.commands.Unicorndrive;
 import edu.wpi.first.wpilibj.SPI;
 
-/**
- * Got most of the info for this here: https://github.com/frc3946/MecanumDrivetrain/blob/master/src/edu/wpi/first/wpilibj/templates/subsystems/DriveTrain.java
- */
 public class Drivetrain extends Subsystem {
   public static CANSparkMax leftFront = new CANSparkMax(RobotMap.LEFT_DRIVE_PORT_FRONT, MotorType.kBrushless);
   public static CANSparkMax leftBack = new CANSparkMax(RobotMap.LEFT_DRIVE_PORT_BACK, MotorType.kBrushless);
@@ -39,6 +36,7 @@ public class Drivetrain extends Subsystem {
   
   public static boolean polarMode = true; 
 
+  //This subsystem is for the drivetrain
   public Drivetrain () {
     gyro.reset();
 
@@ -49,8 +47,8 @@ public class Drivetrain extends Subsystem {
     
   }
 
+  //NOTE: the first paramater is supposed to be the yspeed but it inverted for some magical reason so now it is xspeed
   public static void drive(double xspeed, double yspeed, double rotation) {
-   //5 drive.setDeadband(0.2);
    //rotation does not have reduced speed here because of DropWheelieBar
     drive.driveCartesian(xspeed, yspeed, rotation);
   }
@@ -89,7 +87,7 @@ public class Drivetrain extends Subsystem {
     SmartDashboard.putNumber("Left Encoder", getLeftEncoder());
     SmartDashboard.putNumber("Right Encoder", getRightEncoder());
     SmartDashboard.putNumber("Angle", getFacingAngle());
-    SmartDashboard.putNumber("Joystick Angle", getJoystickAngle());
+    //SmartDashboard.putNumber("Joystick Angle", getJoystickAngle());
     SmartDashboard.putNumber("Joystick Y", OI.driveCont.getRawAxis(0));
     SmartDashboard.putNumber("Joystick X", OI.driveCont.getRawAxis(1));
     SmartDashboard.putNumber("Joystick Rotation", OI.driveCont.getRawAxis(4));

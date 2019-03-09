@@ -13,6 +13,8 @@ import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Lift;
 
 public class DropWheelieBar extends Command {
+  //Spins in a circle to drop the wheelie bar
+  //Also runs the lift motor backwards to prevent it from lifting up
 
   public DropWheelieBar() {
     // Use requires() here to declare subsystem dependencies
