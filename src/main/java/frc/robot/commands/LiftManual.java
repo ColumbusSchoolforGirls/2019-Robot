@@ -29,13 +29,13 @@ public class LiftManual extends Command {
   }
 
   // Called repeatedly when this Command is scheduled to run
-  //When the joystick is positive then it runs at .4 speed and when the joystick is negative then .9 speed
+  //When the joystick is positive then it runs at .45 speed and when it is fully negative it stalls the motor
   @Override
   protected void execute() {
     if (OI.auxCont.getRawAxis(1) < -Global.DEADZONE) {
-      Lift.liftMotor(.9*OI.auxCont.getRawAxis(1));
+      Lift.liftMotor(.1*OI.auxCont.getRawAxis(1));
     } else if (OI.auxCont.getRawAxis(1) > Global.DEADZONE) {
-      Lift.liftMotor(.4*OI.auxCont.getRawAxis(1));
+      Lift.liftMotor(.45*OI.auxCont.getRawAxis(1));
     } else {
       Lift.liftMotor(0);
     }
