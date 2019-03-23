@@ -46,7 +46,7 @@ public class LiftSetAngle extends Command {
 
     SmartDashboard.putNumber("Lift Error", error);
 
-    Lift.liftMotor(-output);
+    Lift.liftMotor(0.7*-output);
     finished = false;
     SmartDashboard.putBoolean("Stall Finished", finished);
   }

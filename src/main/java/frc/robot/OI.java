@@ -66,7 +66,7 @@ public class OI {
     buttonA.whenReleased(new DropWheelieBar(false, true));
 
     //PID lift controls
-    auxSelect.whileHeld(new LiftSetAngle(Global.LIFT_SETPOINT_CARGO_1, Global.LIFT_P_CARGO_1, Global.LIFT_I_CARGO_1, Global.LIFT_D_CARGO_1, Global.LIFT_IZONE_CARGO_1));
+    //auxSelect.whileHeld(new LiftSetAngle(Global.LIFT_SETPOINT_CARGO_1, Global.LIFT_P_CARGO_1, Global.LIFT_I_CARGO_1, Global.LIFT_D_CARGO_1, Global.LIFT_IZONE_CARGO_1));
     //auxStart.whileHeld(new LiftSetAngle(Global.LIFT_SETPOINT_CARGO_2, Global.LIFT_P_CARGO_2, Global.LIFT_I_CARGO_2, Global.LIFT_D_CARGO_2, Global.LIFT_IZONE_CARGO_2));
     auxLeftTrigger.whileHeld(new LiftSetAngle(Global.LIFT_SETPOINT_HATCH_1, Global.LIFT_P_HATCH_1, Global.LIFT_I_HATCH_1, Global.LIFT_D_HATCH_1, Global.LIFT_IZONE_HATCH_1));
     //auxRightTrigger.whileHeld(new LiftSetAngle(Global.LIFT_SETPOINT_HATCH_2, Global.LIFT_P_HATCH_2, Global.LIFT_I_HATCH_2, Global.LIFT_D_HATCH_2, Global.LIFT_IZONE_HATCH_2));
