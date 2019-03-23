@@ -27,9 +27,9 @@ public class WheelieBar extends Subsystem {
 
   public static void drop(boolean open) {
     if (open) {
-      wheeliebar.set(Value.kForward);
-    } else {
       wheeliebar.set(Value.kReverse);
+    } else {
+      wheeliebar.set(Value.kForward);
     }
   }
 

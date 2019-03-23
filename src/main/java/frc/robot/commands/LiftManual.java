@@ -33,7 +33,7 @@ public class LiftManual extends Command {
   @Override
   protected void execute() {
     if (OI.auxCont.getRawAxis(1) < -Global.DEADZONE) {
-      Lift.liftMotor(.9*OI.auxCont.getRawAxis(1));
+      Lift.liftMotor(.7*OI.auxCont.getRawAxis(1));
     } else if (OI.auxCont.getRawAxis(1) > Global.DEADZONE) {
       Lift.liftMotor(.25*-OI.auxCont.getRawAxis(1));
     } else {

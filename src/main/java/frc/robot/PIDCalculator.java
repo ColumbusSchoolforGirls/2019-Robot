@@ -39,6 +39,7 @@ public class PIDCalculator {
         double integral;
         double deriv;
 
+       
         if (Math.abs(error) <= IZone) {
             runningSum = runningSum + error * (Timer.getFPGATimestamp() - lastTime);
         } else {

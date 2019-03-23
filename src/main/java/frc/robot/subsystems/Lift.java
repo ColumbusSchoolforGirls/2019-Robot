@@ -14,6 +14,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.Global;
 import frc.robot.OI;
 import frc.robot.RobotMap;
 import frc.robot.commands.LiftManual;
@@ -22,6 +23,8 @@ import frc.robot.commands.LiftManual;
  * Thi subsystem is for the 4 bar lift
  */
 public class Lift extends Subsystem {
+
+
   public static TalonSRX lift = new TalonSRX(RobotMap.LIFT_PORT);
   public static AnalogInput sonar = new AnalogInput(0);
 
